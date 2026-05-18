@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/gestion_scolarite_dev
+    username: root
+    password: passer123
+  jpa:
+    hibernate:
+      ddl-auto: create
+isep:
+  dbe:
+    nbreApprenants: 10000
+  taux:
+    fille: 0.65
+    etranger: 0.1

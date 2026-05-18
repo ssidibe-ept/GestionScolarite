@@ -1,0 +1,31 @@
+isepat:
+  administration:
+    directeur:
+      prenom: Moustapha
+      nom: Fall
+      contact:
+        email: mfall@isepat.edu.sn
+        tel: 76 89X XX XX
+        adresse: yoff
+
+spring:
+  application:
+    name: GestionScolarite
+
+  datasource:
+    url: ${DBE_DATABASE_URL}
+    username: ${DBE_USER}
+    password: ${DBE_PWD}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+  profiles:
+    active: mysql, dev
+logging:
+  level:
+    root: info
+    sql: warn
+    web: warn
+    sn:
+      edu: info
