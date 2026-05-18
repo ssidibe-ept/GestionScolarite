@@ -7,10 +7,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import sn.edu.isepat.tic.dbe.p6.GestionScolarite.ApiException;
 import sn.edu.isepat.tic.dbe.p6.GestionScolarite.entities.Apprenant;
 import sn.edu.isepat.tic.dbe.p6.GestionScolarite.services.ApprenantService;
 
@@ -88,14 +90,9 @@ public class ApprenantController {
 
     //apprenants/5
     @GetMapping("/{id}")
-    public Apprenant findById(@PathVariable Integer id) {
-        log.trace("recherche apprenant dont l'id est {}", id);
-        Optional<Apprenant> result=apprenantService.findById(id);
-        if (result.isPresent()) {
-            Apprenant apprenant = result.get();
-            return apprenant;
-        }
-        return null;
+    public ResponseEntity<?> findById(@PathVariable Integer id) {
+        Apprenant result=apprenantService.findById(id);
+        return ResponseEntity.ok(result);
     }
 
 }
